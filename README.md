@@ -1,27 +1,54 @@
-# Frontend
+# INLAZE WIRES
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.0.
+## Instrucciones
 
-## Development server
+Para correr el proyecto, por favor clonar tanto el repositorio
+del frontend como del backend en una misma carpeta. Para el
+correcto funcionamiento del proyecto es deseable que las
+carpetas se llamen `frontend` y `backend` respectivamente
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Ejemplo
 
-## Code scaffolding
+`mkdir inlaze-wires`
+`cd inlaze-wires`
+`git clone https://github.com/Jonathan-Correa/inlaze-wires-front.git frontend`
+`git clone https://github.com/Jonathan-Correa/inlaze-wires-back.git backend`
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Despues de esto, se deberán instalar las dependencias de cada
+uno de los proyectos, es recomendable contar con node versión
+14 en adelante
 
-## Build
+Para el frontend:
+    `cd frontend`
+    `npm install`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Para el backend:
+    `cd backend`
+    `npm install`
 
-## Running unit tests
+Ahora para compilar el proyecto `frontend`
+    `npm run build`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Este comando generará los archivos estáticos correspondientes
+al fronted dentro de la carpeta backend/build
 
-## Running end-to-end tests
+Como base de datos el proyecto usa mongodb, por lo que
+procederemos a poner a correr un contenedor de docker con
+mongodb
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+    `docker pull mongo:4`
+    `docker run -d -p 27017:27017 mongo:4`
 
-## Further help
+Una vez hechos estos pasos, estamos listos para poner a correr
+el servidor, para ello entraremos a la carpeta `backend`
+y usaremos el siguiente comando `npm run dev`, con esto ya
+tendremos un servidor de node corriendo en el puerto 3000,
+las configuraciones de la base de datos se encuentran en el
+archivo .env el cual opté por subirlo al repositorio con unas
+configuraciones ya establecidas para facilitarles el proceso
+lo máximo posible (Cabe aclarar que esto no se haría en un
+proyecto real)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Al cuál prodremos acceder a través de nuestro navegador en la
+dirección `localhost:3000`
+
