@@ -40,61 +40,6 @@ export class InputFormComponent implements OnInit, ControlValueAccessor {
     }
   }
 
-  public get invalid(): boolean {
-    if (!this.control) {
-      return false;
-    }
-
-    if (this.type !== 'email') {
-      return this.control.invalid;
-    }
-
-    const validate: RegExp = new RegExp(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/);
-    if (!validate.test(this.value)) {
-      if (!this.control.errors) {
-        Object.defineProperty(this.control, 'errors', {
-          value: {
-            invalid: true,
-          },
-        });
-      }
-
-      Object.defineProperty(this.control, 'invalid', {
-        value: true,
-        writable: true,
-      });
-    } else {
-      Object.assign(this.control, { invalid: false });
-    }
-
-    return this.control.invalid;
-  }
-
-  public get showError(): boolean {
-    if (!this.control) {
-      return false;
-    }
-
-    const { dirty, touched } = this.control;
-    return this.invalid ? dirty || touched : false;
-  }
-
-  public get errors(): string[] {
-    if (!this.control) {
-      return [];
-    }
-
-    const { errors } = this.control;
-
-    return Object.keys(errors).map((key: string) => {
-      if (key === 'required') {
-        return 'GLOBAL.ERRORS.REQUIRED';
-      }
-
-      return `FORM.${this.name.toUpperCase()}.ERRORS.${key.toUpperCase()}`;
-    });
-  }
-
   onInput(value: string) {
     this.value = value;
     this.onTouch();

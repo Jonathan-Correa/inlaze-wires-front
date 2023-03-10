@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
 
 import {
   HttpInterceptor,
@@ -14,7 +13,6 @@ import { throwError } from 'rxjs';
 export class ErrorHandlerService implements HttpInterceptor {
   constructor(
     private router: Router,
-    private translate: TranslateService
   ) {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler) {

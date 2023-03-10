@@ -11,14 +11,14 @@ import { AppComponent } from 'src/app/app.component';
   styleUrls: ['./signin.component.scss'],
 })
 export class SigninComponent implements OnInit {
-  public signinForm: FormGroup;
+  public form: FormGroup;
 
   constructor(
     private router: Router,
     public usersService: UsersService,
     public appComponent: AppComponent
   ) {
-    this.signinForm = new FormGroup({
+    this.form = new FormGroup({
       email: new FormControl('', [Validators.email, Validators.required]),
       password: new FormControl('', [Validators.required]),
     });
@@ -33,5 +33,9 @@ export class SigninComponent implements OnInit {
         return this.router.navigate(['']);
       });
     }
+  }
+
+  onClickSignUpButton() {
+    this.router.navigate(['users/auth/signup']);
   }
 }

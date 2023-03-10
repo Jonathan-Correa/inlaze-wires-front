@@ -16,6 +16,40 @@
   color: var(--yellow);
 }
 
+.recent-posts-title {
+  color: var(--maincolor);
+  font-weight: bolder;
+  font-size: 1em;
+  line-height: 0;
+  margin: 20px 0;
+  padding-left: 10px;
+}
+
+.recent-posts-list {
+  list-style: none;
+  padding: 0;
+}
+
+.title-recent-message {
+  color: var(--maincolor);
+  font-weight: bolder;
+  font-size: 1em;
+  line-height: 1.9;
+  white-space: nowrap;
+  width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.body-recent-message {
+  color: grey;
+  font-size: 0.65em;
+  white-space: nowrap;
+  width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .nav .navbar-icons {
   list-style: none;
   display: flex;

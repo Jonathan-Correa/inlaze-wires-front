@@ -11,7 +11,20 @@
         <div
           [style]="{ display: showChat ? 'block' : 'none' }"
           class="dropdown-container"
-        ></div>
+        >
+        <h6 class="recent-posts-title">Recent posts</h6>
+        <ul class="recent-posts-list">
+          <li *ngFor="let message of mostRecentMessages">
+            <div class="title-recent-message">
+              {{ message.title }}
+            </div>
+            <div class="body-recent-message">
+              {{ message.message }}
+            </div>
+            <hr>
+          </li>
+        </ul>
+      </div>
       </li>
       <li class="menu-item" (click)="toggleShowMenu()">
         <div class="menu-item-container" [ngClass]="showMenu ? 'active' : ''">
@@ -33,14 +46,18 @@
             </li>
             <li>
               <img src="/assets/icons/send.svg" alt="Create icon" />
-              <span>My Messages</span>
+              <span>
+                <a [routerLink]="['/myMessages']">My Messages</a>
+              </span>
             </li>
             <li>
               <img
                 src="/assets/icons/chatbubbles-sharp.svg"
                 alt="Create icon"
               />
-              <span>See all messages</span>
+              <span>
+                <a [routerLink]="['']">See all messages</a>
+              </span>
             </li>
             <li (click)="logout()">
               <img src="/assets/icons/log-in-sharp.svg" alt="Create icon" />

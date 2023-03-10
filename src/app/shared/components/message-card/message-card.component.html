@@ -7,7 +7,7 @@
   </p>
 
   <div class="message-card-bottom">
-    <span class="message-date"> {{ message.createdAt }} </span>
+    <span class="message-date"> {{ message.createdAt | date: 'dd/MM/yyyy' }} </span>
     <span class="message-created-by"> {{ message.createdBy.fullName }} </span>
   </div>
 </div>
