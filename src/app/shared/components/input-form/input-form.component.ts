@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Optional, Self } from '@angular/core';
+import { Component, OnInit, Input, Output, Optional, Self, EventEmitter } from '@angular/core';
 import { ControlValueAccessor, NgControl } from '@angular/forms';
 import { SelectOption } from '../../interfaces/select-option';
 
@@ -22,6 +22,8 @@ export class InputFormComponent implements OnInit, ControlValueAccessor {
   @Input() required = false;
   @Input() minlength: number;
   @Input() options: SelectOption[] = [];
+  @Output() onChangeValue = new EventEmitter<string>();
+  @Output() onInputType = new EventEmitter<string>();
 
   @Input() value: string;
   pattern: RegExp;
@@ -30,7 +32,9 @@ export class InputFormComponent implements OnInit, ControlValueAccessor {
 
   ngOnInit(): void {}
 
-  constructor(@Self() @Optional() public control: NgControl) {
+  constructor(
+    @Self() @Optional() public control: NgControl
+  ) {
     if (this.control) {
       this.control.valueAccessor = this;
     }
@@ -95,6 +99,11 @@ export class InputFormComponent implements OnInit, ControlValueAccessor {
     this.value = value;
     this.onTouch();
     this.onChange(this.value);
+    this.onInputType.emit(value);
+  }
+
+  onChangeInput(value: string){
+    this.onChangeValue.emit(value);
   }
 
   writeValue(value: any): void {
