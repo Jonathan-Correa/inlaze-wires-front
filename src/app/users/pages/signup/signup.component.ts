@@ -39,11 +39,11 @@ export class SignupComponent implements OnInit {
   }
 
   signup(form: any) {
-    if (form.valid) {
-      this.usersService.signup(form.value).subscribe(() => {
-        return this.router.navigate(['']);
-      });
-    }
+    if (!form.valid) return;
+
+    this.usersService.signup(form.value).subscribe(() => {
+      return this.router.navigate(['']);
+    });
   }
 
   onClickSignInButton() {
