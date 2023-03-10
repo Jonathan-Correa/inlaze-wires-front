@@ -1,48 +1,81 @@
-button.navbar-button {
-  background-color: #d93434;
-  color: white;
+.nav  {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-li a.nav-link.active {
-  color: white;
-  text-decoration: underline;
-}
-/* DROPDOWN LANGUAGES */
-.dropbtn {
-  background: none;
-  color: beige;
-  padding: 8px 5px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
+.wires {
+  color: var(--yellow);
+  padding-left: 10px;
+  font-weight: 500;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
 }
 
-.custom-dropdown {
+.nav .navbar-icons {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0 10px;
+}
+
+.nav ul li {
+  padding: 0 15px;
+}
+
+.menu-item-container {
+  padding: 8px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-item-container.active {
+  border-radius: 50%;
+  background-color: var(--yellow);
+}
+
+.menu-item {
   position: relative;
-  display: inline-block;
 }
 
-.dropdown-content {
-  display: none;
+.chatbox-item {
+  position: relative;
+}
+
+.dropdown-container {
+  width: 200px;
+  height: 200px;
+  right: 10px;
+  background-color: white;
   position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
+  border-radius: 5px;
+  transition: all ease 1s;
+  margin-top: 5px;
 }
 
-.dropdown-content a {
-  cursor: pointer;
-  color: black;
-  padding: 10px 13px;
-  text-decoration: none;
-  display: block;
+h3.user-name {
+  color: var(--maincolor);
+  padding-left: 10px;
+  font-weight: bold;
+  text-overflow: ellipsis;
 }
 
-.dropdown-content a:hover {
-  background-color: #f1f1f1;
+.menu-option-list {
+  padding: 0;
 }
 
-.custom-dropdown:hover .dropdown-content {
-  display: block;
+.menu-option-list li {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  color: var(--maincolor);
+  font-size: 0.9em;
+  margin-bottom: 10px;
+}
+
+.menu-option-list li img {
+  margin-right: 5px;
 }

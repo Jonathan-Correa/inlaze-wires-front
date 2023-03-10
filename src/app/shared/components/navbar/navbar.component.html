@@ -1,3 +1,51 @@
-<nav class="">
-  
+<nav class="nav">
+  <h1 class="wires">WIRES</h1>
+  <section>
+    <ul class="navbar-icons">
+      <li class="chatbox-item" (click)="toggleShowChat()">
+        <div class="menu-item-container" [ngClass]="showChat ? 'active' : ''">
+          <img src="/assets/icons/chatbox-ellipses.svg" alt="Chat icon" />
+        </div>
+        <div
+          [style]="{ display: showChat ? 'block' : 'none' }"
+          class="dropdown-container"
+        ></div>
+      </li>
+      <li class="menu-item" (click)="toggleShowMenu()">
+        <div class="menu-item-container" [ngClass]="showMenu ? 'active' : ''">
+          <img src="/assets/icons/menu.svg" alt="Menu icon" />
+        </div>
+        <div
+          [style]="{ display: showMenu ? 'block' : 'none' }"
+          class="dropdown-container"
+        >
+          <h3 class="user-name">{{ usersService.userData.fullName }}</h3>
+          <ul class="menu-option-list">
+            <li>
+              <img src="/assets/icons/create.svg" alt="Create icon" />
+              <span>Create Messages</span>
+            </li>
+            <li>
+              <img src="/assets/icons/send.svg" alt="Create icon" />
+              <span>My Messages</span>
+            </li>
+            <li>
+              <img
+                src="/assets/icons/chatbubbles-sharp.svg"
+                alt="Create icon"
+              />
+              <span>See all messages</span>
+            </li>
+            <li (click)="logout()">
+              <img
+                src="/assets/icons/log-in-sharp.svg"
+                alt="Create icon"
+              />
+              <span>Logout</span>
+            </li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </section>
 </nav>
