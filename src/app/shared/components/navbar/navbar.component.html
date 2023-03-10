@@ -1,5 +1,7 @@
 <nav class="nav">
-  <h1 class="wires">WIRES</h1>
+  <h1 class="wires">
+    <a [routerLink]="['']"> WIRES </a>
+  </h1>
   <section>
     <ul class="navbar-icons">
       <li class="chatbox-item" (click)="toggleShowChat()">
@@ -23,7 +25,11 @@
           <ul class="menu-option-list">
             <li>
               <img src="/assets/icons/create.svg" alt="Create icon" />
-              <span><a [routerLink]="['/messages/create']">Create Messages</a></span>
+              <span
+                ><a [routerLink]="['/messages/create']"
+                  >Create Messages</a
+                ></span
+              >
             </li>
             <li>
               <img src="/assets/icons/send.svg" alt="Create icon" />

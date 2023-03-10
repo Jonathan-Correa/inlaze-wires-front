@@ -1,0 +1,36 @@
+.message-card {
+  background-color: white;
+  padding: 1px 12px 12px 12px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.message-title {
+  line-height: 20px;
+  font-weight: bolder;
+}
+
+.message-description {
+  font-size: 12px;
+  color: var(--maincolor);
+}
+
+.message-card-bottom {
+  display: flex;
+  justify-content: space-between;
+  justify-items: center;
+}
+
+.message-date {
+  font-size: 10px;
+  color: grey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.message-created-by {
+  font-size: 20px;
+  color: var(--maincolor);
+  font-weight: bolder;
+}

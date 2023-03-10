@@ -14,6 +14,7 @@ import { InputFormComponent } from './components/input-form/input-form.component
 import { ForbiddenComponent } from './pages/forbidden/forbidden.component';
 import { FormComponent } from './components/form/form.component';
 import { ButtonComponent } from './components/button/button.component';
+import { MessageCardComponent } from './components/message-card/message-card.component';
 
 const components = [
   NavbarComponent,
@@ -21,6 +22,7 @@ const components = [
   InputFormComponent,
   FormComponent,
   ButtonComponent,
+  MessageCardComponent,
 ];
 
 @NgModule({

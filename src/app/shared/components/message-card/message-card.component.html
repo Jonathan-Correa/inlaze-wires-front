@@ -1,0 +1,13 @@
+<div class="message-card">
+  <h4 class="text-blue message-title">
+    {{ message.title }}
+  </h4>
+  <p class="message-description">
+    {{ message.message }}
+  </p>
+
+  <div class="message-card-bottom">
+    <span class="message-date"> {{ message.createdAt }} </span>
+    <span class="message-created-by"> {{ message.createdBy.fullName }} </span>
+  </div>
+</div>

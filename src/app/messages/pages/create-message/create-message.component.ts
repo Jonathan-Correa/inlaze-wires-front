@@ -5,6 +5,7 @@ import { AppComponent } from 'src/app/app.component';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MessagesService } from '../../messages.service';
 import { UsersService } from 'src/app/users/users.service';
+import { Message } from '../../interfaces/message';
 
 @Component({
   selector: 'app-create-message',
@@ -12,7 +13,8 @@ import { UsersService } from 'src/app/users/users.service';
   styleUrls: ['./create-message.component.scss'],
 })
 export class CreateMessageComponent implements OnInit {
-  form: FormGroup;
+  public form: FormGroup;
+  public myMessages: Message[] = [];
 
   constructor(
     public router: Router,
@@ -37,9 +39,11 @@ export class CreateMessageComponent implements OnInit {
   create(form: FormGroup) {
     if (!form.valid) return;
 
-    console.log(form.value)
-    this.messagesService.createMessage(form.value).subscribe(() => {
-      console.log('Mensaje creado');
+    this.messagesService.createMessage(form.value).subscribe((createdMessage: Message) => {
+      this.form.reset();
+      const date = new Date(createdMessage.createdAt);
+      createdMessage.createdAt = date.toDateString() as any;
+      this.myMessages.push(createdMessage as Message);
     });
   }
 }

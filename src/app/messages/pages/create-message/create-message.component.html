@@ -32,4 +32,10 @@
       >
     </section>
   </form>
+  <section>
+    <app-message-card
+      *ngFor="let message of myMessages"
+      [message]="message"
+    ></app-message-card>
+  </section>
 </section>
