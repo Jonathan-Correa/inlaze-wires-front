@@ -4,7 +4,7 @@
 }
 
 .page-container {
-  width: 50vw;
+  width: 30vw;
 }
 
 .signup-error {
@@ -51,6 +51,19 @@
   line-height: 5px;
   padding-bottom: 10px;
   padding-top: 20px;
+}
+
+@media (max-width: 1180px) {
+    .wires-title {
+    top: 15%;
+    font-size: 3em;
+  }
+}
+
+@media (max-width: 1180px) {
+  .page-container {
+    width: 50vw;
+  }
 }
 
 @media (max-width: 500px) {
