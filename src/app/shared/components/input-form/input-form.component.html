@@ -13,7 +13,6 @@
     [ngModelOptions]="{ standalone: true }"
     [type]="type"
     [id]="id || name"
-    [ngClass]="showError ? 'invalid' : ''"
     (input)="onInput($event.target.value)"
     (change)="onChangeInput($event.target.value)"
     [placeholder]="placeholder"
@@ -31,7 +30,6 @@
     [(ngModel)]="value"
     [ngModelOptions]="{ standalone: true }"
     [id]="id || name"
-    [ngClass]="showError ? 'invalid' : ''"
     (input)="onInput($event.target.value)"
     [placeholder]="placeholder"
   ></textarea>
