@@ -1,6 +1,7 @@
 <div class="input-container" *ngIf="type !== 'select'">
-  <label *ngIf="label != null"  [for]="id">{{ label }}</label>
+  <label *ngIf="label != null" [for]="id">{{ label }}</label>
   <input
+    *ngIf="type !== 'textarea'"
     class="input text-center"
     [required]="required"
     [minlength]="minlength"
@@ -16,6 +17,24 @@
     (input)="onInput($event.target.value)"
     [placeholder]="placeholder"
   />
+
+  <textarea
+    *ngIf="type === 'textarea'"
+    class="input text-center"
+    [required]="required"
+    rows="4"
+    [minlength]="minlength"
+    [name]="name"
+    [autocomplete]="autocomplete ? name : 'off'"
+    [value]="value"
+    [disabled]="isDisabled"
+    [(ngModel)]="value"
+    [ngModelOptions]="{ standalone: true }"
+    [id]="id || name"
+    [ngClass]="showError ? 'invalid' : ''"
+    (input)="onInput($event.target.value)"
+    [placeholder]="placeholder"
+  ></textarea>
 </div>
 <div *ngIf="type === 'select'">
   <select

@@ -8,8 +8,6 @@ import { TranslateModule } from '@ngx-translate/core';
 // DECLARATIONS
 import { SignupComponent } from './pages/signup/signup.component';
 import { SigninComponent } from './pages/signin/signin.component';
-// PROVIDERS
-import { AdminService } from '../admin/admin.service';
 
 @NgModule({
   declarations: [
@@ -22,9 +20,7 @@ import { AdminService } from '../admin/admin.service';
     FormsModule,
     SharedModule,
     UsersRoutingModule,
-    TranslateModule,
-    UsersRoutingModule,
   ],
-  providers: [AdminService],
+  providers: [],
 })
 export class UsersModule {}

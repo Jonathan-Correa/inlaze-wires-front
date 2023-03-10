@@ -23,7 +23,7 @@
           <ul class="menu-option-list">
             <li>
               <img src="/assets/icons/create.svg" alt="Create icon" />
-              <span>Create Messages</span>
+              <span><a [routerLink]="['/messages/create']">Create Messages</a></span>
             </li>
             <li>
               <img src="/assets/icons/send.svg" alt="Create icon" />
@@ -37,10 +37,7 @@
               <span>See all messages</span>
             </li>
             <li (click)="logout()">
-              <img
-                src="/assets/icons/log-in-sharp.svg"
-                alt="Create icon"
-              />
+              <img src="/assets/icons/log-in-sharp.svg" alt="Create icon" />
               <span>Logout</span>
             </li>
           </ul>
