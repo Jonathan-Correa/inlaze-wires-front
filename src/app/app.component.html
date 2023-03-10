@@ -1,0 +1,9 @@
+<div id="wrapper">
+  <div id="content">
+    <ng-container *ngIf="usersService.userData">
+      <app-navbar></app-navbar>
+    </ng-container>
+
+    <router-outlet></router-outlet>
+  </div>
+</div>

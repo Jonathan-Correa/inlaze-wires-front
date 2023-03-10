@@ -1,0 +1,5 @@
+<section>
+  <div class="mb-3" *ngFor="let item of items | keyvalue">
+    <strong>{{item.key | translate}}: </strong> {{item.value}} <br>
+  </div>
+</section>

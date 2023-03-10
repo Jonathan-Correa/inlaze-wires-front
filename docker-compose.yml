@@ -1,0 +1,39 @@
+version: "3"
+services:
+  mongo:
+    image: mongo
+    container_name: template-mongo
+    ports:
+      - 27017:27017
+    volumes:
+      - /home/binlab/Documents/dump/:/opt
+    networks:
+      - angular-template
+  back:
+    build: .
+    container_name: template-express
+    ports:
+      - 4400:4400
+    working_dir: /usr/src/app
+    volumes:
+      - /home/binlab/Documents/mean/angular-template/:/usr/src/app
+    networks:
+      - angular-template
+    links:
+      - mongo
+  front:
+    build: .
+    container_name: template-angular
+    ports:
+      - 4200:4200
+    working_dir: /usr/src/app
+    volumes:
+      - /home/binlab/Documents/mean/angular-template/:/usr/src/app
+    networks:
+      - angular-template
+    links:
+      - back
+
+networks:
+  angular-template:
+    driver: bridge

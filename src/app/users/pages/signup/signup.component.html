@@ -1,0 +1,75 @@
+<section class="signup-page">
+  <div class="page-container">
+    <figure class="wires-logo-container">
+      <img
+        src="/assets/img/wires_logo.png"
+        class="wires-logo"
+        alt="Wires Logo"
+      />
+      <h1 class="wires-title text-yellow">Wires</h1>
+    </figure>
+    <h2 class="welcome-text">Welcome To Wires</h2>
+    <section class="signin-button-container">
+      <app-button textColor="var(--yellow)" [onClickButton]="onClickSignInButton">
+        Sign In
+      </app-button>
+    </section>
+    <section>
+      <section id="signup">
+        <form
+          class="signupForm"
+          [formGroup]="form"
+          (ngSubmit)="signup(form)"
+          novalidate
+        >
+          <app-input-form
+            label="Nickname"
+            [type]="'text'"
+            name="nickname"
+            [required]="true"
+            formControlName="nickname"
+            placeholder="Nickname"
+          ></app-input-form>
+          <app-input-form
+            label="Name"
+            [type]="'text'"
+            name="fullName"
+            [required]="true"
+            formControlName="fullName"
+            placeholder="Full name"
+          ></app-input-form>
+
+          <app-input-form
+            type="email"
+            name="email"
+            [required]="true"
+            formControlName="email"
+            placeholder="example@gmail.com"
+            label="Email Address"
+          ></app-input-form>
+
+          <app-input-form
+            type="password"
+            name="new-password"
+            formControlName="password"
+            label="Password"
+            placeholder="Password"
+          ></app-input-form>
+
+          <section class="signup-button-container">
+            <app-button backgroundColor="white" textColor="var(--maincolor)"
+              >Create</app-button
+            >
+          </section>
+        </form>
+      </section>
+    </section>
+  </div>
+</section>
+<footer class="footer">
+  <p><span style="color: white">2022</span> All Rigths Reserved. WIRES</p>
+  <p>
+    <span class="text-yellow">Privacy Policy</span> |
+    <span class="text-yellow">Terms & Conditions</span>
+  </p>
+</footer>

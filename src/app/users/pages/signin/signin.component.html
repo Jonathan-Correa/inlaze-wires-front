@@ -1,0 +1,48 @@
+<section class="main-color" style="min-height: 640px">
+  <div class="row">
+    <div class="col-md-5 col-sm-10 col-10 mx-auto mt-5 mb-5">
+      <section id="signin">
+        <p class="sign text-center">Sign in</p>
+        <form
+          class="signinForm"
+          [formGroup]="signinForm"
+          (ngSubmit)="signin(signinForm)"
+        >
+          <section class="form-group">
+            <app-input-form
+              [type]="'email'"
+              [name]="'email'"
+              [autocomplete]="true"
+              formControlName="email"
+            ></app-input-form>
+          </section>
+          <app-input-form
+            [type]="'password'"
+            [name]="'current-password'"
+            formControlName="password"
+          ></app-input-form>
+
+          <div class="row mt-3">
+            <div class="col-6">
+              <button
+                type="submit"
+                class="submit signin-button text-center float-right"
+              >
+                {{ 'FORM.SEND' | translate }}
+              </button>
+            </div>
+            <div class="col-6">
+              <button
+                type="submit"
+                [routerLink]="['/users/auth/signup']"
+                class="submit signup-button text-center"
+              >
+                {{ 'NAVBAR.SIGNUP' | translate }}
+              </button>
+            </div>
+          </div>
+        </form>
+      </section>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,42 @@
+<div class="input-container" *ngIf="type !== 'select'">
+  <label *ngIf="label != null"  [for]="id">{{ label }}</label>
+  <input
+    class="input text-center"
+    [required]="required"
+    [minlength]="minlength"
+    [name]="name"
+    [autocomplete]="autocomplete ? name : 'off'"
+    [value]="value"
+    [disabled]="isDisabled"
+    [(ngModel)]="value"
+    [ngModelOptions]="{ standalone: true }"
+    [type]="type"
+    [id]="id || name"
+    [ngClass]="showError ? 'invalid' : ''"
+    (input)="onInput($event.target.value)"
+    [placeholder]="placeholder"
+  />
+</div>
+<div *ngIf="type === 'select'">
+  <select
+    class="input text-center"
+    [ngStyle]="{ width: width, 'margin-left': 'auto', 'margin-right': 'auto' }"
+    [name]="name"
+    [required]="required"
+    type="select"
+    [id]="id || name"
+    [value]="value"
+    [disabled]="isDisabled"
+    (change)="onInput($event.target.value)"
+    [(ngModel)]="value"
+    [ngModelOptions]="{ standalone: true }"
+    [ngClass]="showError ? 'invalid' : ''"
+  >
+    <option *ngFor="let option of options" value="{{ option.value }}">
+      {{ option.label }}
+    </option>
+  </select>
+</div>
+<div class="invalid-feed" *ngIf="showError">
+  {{ errors[0] | translate }}
+</div>
