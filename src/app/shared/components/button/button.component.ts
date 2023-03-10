@@ -10,6 +10,7 @@ export class ButtonComponent {
   constructor(public router: Router) {}
 
   @Input() textColor: string;
+  @Input() type: string = 'button';
   @Input() backgroundColor: string = 'var(--mainColor)';
   @Input() width: string;
   @Input() onClickButton: () => {};
