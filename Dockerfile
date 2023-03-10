@@ -1,13 +1,8 @@
-FROM node:14
-
-WORKDIR /usr/src/app
-
-RUN apt-get update
-RUN apt-get install -y wget \
-curl
-RUN npm install -g @angular/cli@9.1.0 \ 
-npm audit fix --force
-
-EXPOSE 4200 4400
-
-CMD "npm install"
+FROM node:14 as node
+WORKDIR /app
+COPY . .
+RUN npm install
+RUN npm run build --omit=dev
+#stage 2
+FROM nginx:alpine
+COPY --from=node /app/dist/angular-template-frontend /usr/share/nginx/html
