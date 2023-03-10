@@ -1,4 +1,28 @@
-<section class="container">
-  <h1>Hello</h1>
-  <h2>{{ userData.displayName }}</h2>
+<section class="page-container">
+  <h1 class="page-title">
+    {{ isMyMessagesView ? 'My Messages' : 'All Messages' }}
+  </h1>
+  <section class="inputs-container">
+    <div *ngIf="!isMyMessagesView">
+      <app-input-form
+        placeholder="Search..."
+        label="What Search?"
+        name="search"
+        (onInputType)="onChangeSearch($event)"
+      ></app-input-form>
+    </div>
+
+    <app-input-form
+      type="date"
+      placeholder="Search..."
+      label="Date select"
+      name="search"
+      (onChangeValue)="onChangeDate($event)"
+    ></app-input-form>
+  </section>
+  <section class="messages-list">
+    <div *ngFor="let message of messages">
+      <app-message-card [message]="message"></app-message-card>
+    </div>
+  </section>
 </section>

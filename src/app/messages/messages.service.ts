@@ -11,4 +11,16 @@ export class MessagesService {
   createMessage(form: object) {
     return this.http.post('/api/messages', form, { withCredentials: true });
   }
+
+  listMessages(params = {}) {
+    return this.http.post('/api/messages/list', params, {
+      withCredentials: true,
+    });
+  }
+
+  getMostRecentMessages() {
+    return this.http.get('/api/messages/mostRecent', {
+      withCredentials: true,
+    });
+  }
 }

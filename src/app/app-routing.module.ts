@@ -12,6 +12,7 @@ import { ForbiddenComponent } from './shared/pages/forbidden/forbidden.component
 
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'myMessages', component: HomeComponent, canActivate: [AuthGuard] },
   {
     path: 'users',
     loadChildren: () =>
