@@ -15,6 +15,7 @@
       </app-button>
     </section>
     <section>
+      <p class="signin-error" *ngIf="error != null">{{ error }}</p>
       <section id="signin">
         <form
           class="signinForm"

@@ -4,7 +4,6 @@ import { HomeComponent } from './core/pages/home/home.component';
 
 // PROVIDERS
 import { UsersService } from './users/users.service';
-import { ErrorHandlerService } from './error-handler.service';
 import {
   HttpClientModule,
   HttpClient,
@@ -19,7 +18,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-
 @NgModule({
   declarations: [AppComponent, HomeComponent],
   imports: [
@@ -32,14 +30,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     BrowserAnimationsModule,
   ],
-  providers: [
-    UsersService,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: ErrorHandlerService,
-      multi: true,
-    },
-  ],
+  providers: [UsersService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

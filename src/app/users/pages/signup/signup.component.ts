@@ -12,6 +12,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class SignupComponent implements OnInit {
   form: FormGroup;
 
+  public error?: string = null;
+
   constructor(
     public router: Router,
     private usersService: UsersService,
@@ -43,6 +45,8 @@ export class SignupComponent implements OnInit {
 
     this.usersService.signup(form.value).subscribe(() => {
       return this.router.navigate(['']);
+    }, (error) => {
+      this.error = error?.error?.message || 'Something went wrong';
     });
   }
 

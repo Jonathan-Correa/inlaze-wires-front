@@ -37,7 +37,6 @@ export class NavbarComponent implements OnInit {
   }
 
   toggleShowMenu() {
-    console.log('Toggle Menu');
     this.showMenu = !this.showMenu;
     this.showChat = false;
   }

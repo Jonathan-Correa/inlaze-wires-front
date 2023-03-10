@@ -10,11 +10,15 @@
     </figure>
     <h2 class="welcome-text">Welcome To Wires</h2>
     <section class="signin-button-container">
-      <app-button textColor="var(--yellow)" [onClickButton]="onClickSignInButton">
+      <app-button
+        textColor="var(--yellow)"
+        [onClickButton]="onClickSignInButton"
+      >
         Sign In
       </app-button>
     </section>
     <section>
+      <p class="signup-error" *ngIf="error != null">{{ error }}</p>
       <section id="signup">
         <form
           class="signupForm"
@@ -57,7 +61,10 @@
           ></app-input-form>
 
           <section class="signup-button-container">
-            <app-button type="submit" backgroundColor="white" textColor="var(--maincolor)"
+            <app-button
+              type="submit"
+              backgroundColor="white"
+              textColor="var(--maincolor)"
               >Create</app-button
             >
           </section>
