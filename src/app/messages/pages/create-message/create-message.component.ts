@@ -38,8 +38,8 @@ export class CreateMessageComponent implements OnInit {
     if (!form.valid) return;
 
     console.log(form.value)
-    // this.messagesService.signup(form.value).subscribe(() => {
-    //   return this.router.navigate(['']);
-    // });
+    this.messagesService.createMessage(form.value).subscribe(() => {
+      console.log('Mensaje creado');
+    });
   }
 }
